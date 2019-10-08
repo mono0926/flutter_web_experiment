@@ -1,0 +1,17 @@
+name: flutter_web_experiment
+description: Flutter for web experiments.
+version: 1.0.0+1
+environment:
+  sdk: ">=2.5.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  mono_kit:
+  pinch_zoom_image:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono:
+flutter:
+  uses-material-design: true
