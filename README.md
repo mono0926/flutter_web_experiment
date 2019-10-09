@@ -2,4 +2,4 @@
 
 Only works fro web.
 
-https://flutter-web-experiment.web.app/#/
+https://flutter-web-experiment.web.app
