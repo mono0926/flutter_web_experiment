@@ -15,7 +15,9 @@ export async function upload() {
   const batch = firestore.batch()
   const ref = firestore.collection('stamps')
   for (const f of files) {
-    batch.set(ref.doc(f.replace('.png', '')), {
+    const key = f.replace('.png', '')
+    batch.set(ref.doc(key), {
+      name: key,
       imageUrl: `https://firebasestorage.googleapis.com/v0/b/flutter-web-experiment.appspot.com/o/stamps%2F${f}?alt=media`
     })
   }
