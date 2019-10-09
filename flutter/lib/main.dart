@@ -13,10 +13,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.light().copyWith(
-        splashFactory: InkRipple.splashFactory,
-      ),
+      theme: _buildTheme(),
       home: const HomePage(),
+    );
+  }
+
+  ThemeData _buildTheme() {
+    final base = ThemeData.light();
+    const fontFamily = 'Hiragino Maru Gothic ProN';
+    return base.copyWith(
+      primaryColor: Colors.pink,
+      splashFactory: InkRipple.splashFactory,
+      primaryTextTheme: base.primaryTextTheme.apply(
+        fontFamily: fontFamily,
+      ),
+      accentTextTheme: base.accentTextTheme.apply(
+        fontFamily: fontFamily,
+      ),
+      textTheme: base.textTheme.apply(
+        fontFamily: fontFamily,
+      ),
+      cardTheme: base.cardTheme.copyWith(
+        clipBehavior: Clip.hardEdge,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
     );
   }
 }
@@ -35,7 +57,7 @@ class HomePage extends StatelessWidget {
       ),
       body: GridView.count(
         padding: const EdgeInsets.all(8),
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         children: StampImage.all
             .map((url) => _GridCell(
                   imageUrl: url,
@@ -57,40 +79,36 @@ class _GridCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: Clip.hardEdge,
-      child: Stack(
-        children: [
-          Ink.image(
-            fit: BoxFit.cover,
-            image: Image.network(
-              imageUrl,
-            ).image,
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).push<void>(
-                  MaterialPageRoute(
-                    builder: (context) => ImageDetailPage(
-                      imageUrl: imageUrl,
-                    ),
-                  ),
-                );
-              },
+      child: Ink.image(
+        fit: BoxFit.cover,
+        image: Image.network(
+          imageUrl,
+        ).image,
+        child: InkWell(
+          onTap: () {},
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              constraints: const BoxConstraints.tightFor(
+                width: double.infinity,
+              ),
+              color: Colors.black.withOpacity(0.5),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 4,
+                  horizontal: 8,
+                ),
+                child: Text(
+                  'Hello',
+                  textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.subhead.copyWith(
+                        color: Colors.white,
+                      ),
+                ),
+              ),
             ),
           ),
-//          Positioned.fill(
-//            top: null,
-//            child: Container(
-//              color: Colors.black.withOpacity(0.5),
-//              child: Text(
-//                imageUrl,
-//                style: Theme.of(context)
-//                    .textTheme
-//                    .body1
-//                    .copyWith(color: Colors.white),
-//              ),
-//            ),
-//          )
-        ],
+        ),
       ),
     );
   }
