@@ -10,6 +10,7 @@ dependencies:
   mono_kit:
   pinch_zoom_image:
   firebase:
+  provider:
 dev_dependencies:
   flutter_test:
     sdk: flutter
