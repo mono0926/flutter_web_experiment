@@ -165,6 +165,24 @@ class ImageDetailPage extends StatelessWidget {
   }
 }
 
+class DisableBackSwipe extends StatelessWidget {
+  const DisableBackSwipe({
+    Key key,
+    @required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () =>
+          Future.value(!Navigator.of(context).userGestureInProgress),
+      child: child,
+    );
+  }
+}
+
 @immutable
 class Stamp {
   const Stamp({
