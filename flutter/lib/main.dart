@@ -16,13 +16,22 @@ void main() {
       projectId: 'flutter-web-experiment',
       messagingSenderId: '687526962423',
     );
-    firestore().enablePersistence();
+    _enablePersistence();
   } on FirebaseJsNotLoadedException catch (e) {
     print(e);
   }
 
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
   runApp(MyApp());
+}
+
+Future _enablePersistence() async {
+  try {
+    await firestore().enablePersistence();
+    // ignore: avoid_catches_without_on_clauses
+  } catch (e) {
+    print(e);
+  }
 }
 
 class MyApp extends StatelessWidget {
