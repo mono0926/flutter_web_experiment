@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>687526962423-desfe3rgal74gc2t08mb84njm45dfgv9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.687526962423-desfe3rgal74gc2t08mb84njm45dfgv9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBpJ7ykwQlI9os2vT7L3JYDcHEa1Kf4q3s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>687526962423</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mono0926.flutterWebExperiment</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-web-experiment</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-web-experiment.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:687526962423:ios:e8e67904924594f4e09ff2</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-web-experiment.firebaseio.com</string>
+</dict>
+</plist>
