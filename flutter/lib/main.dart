@@ -1,37 +1,30 @@
 import 'dart:collection';
 import 'dart:math';
 
-import 'package:firebase/firebase.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web_experiment/firestore/web.dart';
+import 'package:mono_kit/mono_kit.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  try {
-    initializeApp(
-      apiKey: 'AIzaSyAtY9niKr3OHnJ38roJy0HdV2QzXPm894Y',
-      authDomain: 'flutter-web-experiment.firebaseapp.com',
-      databaseURL: 'https://flutter-web-experiment.firebaseio.com',
-      storageBucket: 'flutter-web-experiment.appspot.com',
-      projectId: 'flutter-web-experiment',
-      messagingSenderId: '687526962423',
-    );
-    _enablePersistence();
-  } on FirebaseJsNotLoadedException catch (e) {
-    print(e);
-  }
+//  try {
+//    initializeApp(
+//      apiKey: 'AIzaSyAtY9niKr3OHnJ38roJy0HdV2QzXPm894Y',
+//      authDomain: 'flutter-web-experiment.firebaseapp.com',
+//      databaseURL: 'https://flutter-web-experiment.firebaseio.com',
+//      storageBucket: 'flutter-web-experiment.appspot.com',
+//      projectId: 'flutter-web-experiment',
+//      messagingSenderId: '687526962423',
+//    );
+//  } on FirebaseJsNotLoadedException catch (e) {
+//    print(e);
+//  }
+
+  configureFirestore();
 
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
   runApp(MyApp());
-}
-
-Future _enablePersistence() async {
-  try {
-    await firestore().enablePersistence();
-    // ignore: avoid_catches_without_on_clauses
-  } catch (e) {
-    print(e);
-  }
 }
 
 class MyApp extends StatelessWidget {
@@ -214,14 +207,24 @@ class StampsNotifier extends ChangeNotifier {
     _load();
   }
 
+  final _subscriptionHolder = SubscriptionHolder();
+
   Future _load() async {
-    _stamps = (await firestore().collection('stamps').get())
-        .docs
-        .map((snap) => Stamp.fromJson(snap.data()))
-        .toList();
-    notifyListeners();
+    _subscriptionHolder.add(
+      stampsStream().listen((stamps) {
+        _stamps = stamps;
+        notifyListeners();
+      }),
+    );
   }
 
   var _stamps = <Stamp>[];
   List<Stamp> get stamps => UnmodifiableListView(_stamps);
+
+  @override
+  void dispose() {
+    _subscriptionHolder.dispose();
+
+    super.dispose();
+  }
 }

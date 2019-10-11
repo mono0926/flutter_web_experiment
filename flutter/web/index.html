@@ -9,10 +9,25 @@
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#config-web-app -->
-<!--  <script src="https://www.gstatic.com/firebasejs//6.3.3/firebase-auth.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs//6.3.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-<!--  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-storage.js"></script>-->
-<!--  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-functions.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-functions.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAtY9niKr3OHnJ38roJy0HdV2QzXPm894Y",
+      authDomain: "flutter-web-experiment.firebaseapp.com",
+      databaseURL: "https://flutter-web-experiment.firebaseio.com",
+      projectId: "flutter-web-experiment",
+      storageBucket: "flutter-web-experiment.appspot.com",
+      messagingSenderId: "687526962423",
+      appId: "1:687526962423:web:875de8c1aad204aee09ff2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
