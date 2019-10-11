@@ -3,9 +3,10 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_web_experiment/firestore/web.dart';
 import 'package:mono_kit/mono_kit.dart';
 import 'package:provider/provider.dart';
+
+import 'firestore/firestore.dart';
 
 void main() {
 //  try {
