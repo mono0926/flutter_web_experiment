@@ -40,8 +40,3 @@ class _StampEncoder extends EntityEncoder<Stamp> {
   @override
   Map<String, dynamic> encode(Stamp entity) => <String, dynamic>{};
 }
-
-enum Animal {
-  dog,
-  cat,
-}
