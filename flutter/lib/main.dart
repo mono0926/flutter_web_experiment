@@ -1,22 +1,20 @@
-import 'dart:collection';
 import 'dart:math';
 
+import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mono_kit/mono_kit.dart';
 import 'package:provider/provider.dart';
 
-import 'firestore/firestore.dart';
+import 'model/model.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   configureFirestore();
-
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -170,49 +168,5 @@ class DisableBackSwipe extends StatelessWidget {
           Future.value(!Navigator.of(context).userGestureInProgress),
       child: child,
     );
-  }
-}
-
-@immutable
-class Stamp {
-  const Stamp({
-    @required this.name,
-    @required this.imageUrl,
-  });
-
-  Stamp.fromJson(Map<String, dynamic> json)
-      : this(
-          name: json['name'] as String,
-          imageUrl: json['imageUrl'] as String,
-        );
-
-  final String name;
-  final String imageUrl;
-}
-
-class StampsNotifier extends ChangeNotifier {
-  StampsNotifier() {
-    _load();
-  }
-
-  final _subscriptionHolder = SubscriptionHolder();
-
-  Future _load() async {
-    _subscriptionHolder.add(
-      stampsStream().listen((stamps) {
-        _stamps = stamps;
-        notifyListeners();
-      }),
-    );
-  }
-
-  var _stamps = <Stamp>[];
-  List<Stamp> get stamps => UnmodifiableListView(_stamps);
-
-  @override
-  void dispose() {
-    _subscriptionHolder.dispose();
-
-    super.dispose();
   }
 }
