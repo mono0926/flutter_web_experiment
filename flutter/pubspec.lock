@@ -207,13 +207,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  pinch_zoom_image:
+  photo_view:
     dependency: "direct main"
     description:
-      name: pinch_zoom_image
+      name: photo_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5"
+    version: "0.5.0"
   platform:
     dependency: transitive
     description:

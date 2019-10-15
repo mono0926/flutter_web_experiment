@@ -8,7 +8,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
   mono_kit:
-  pinch_zoom_image:
+  photo_view:
   firebase:
   disposable_provider:
   firestore_ref:

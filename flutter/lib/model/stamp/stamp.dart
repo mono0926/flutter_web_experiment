@@ -1,6 +1,8 @@
 import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
 
+export 'stamp_ref.dart';
+
 class Stamp extends Entity {
   const Stamp({
     @required this.name,

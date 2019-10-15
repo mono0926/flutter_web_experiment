@@ -1,11 +1,10 @@
 import 'dart:collection';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_web_experiment/model/stamp/stamp_doc.dart';
-import 'package:flutter_web_experiment/model/stamp/stamps_ref.dart';
 import 'package:mono_kit/mono_kit.dart';
 
 import 'stamp/stamp.dart';
+import 'stamp/stamps_ref.dart';
 
 class StampsNotifier extends ChangeNotifier {
   StampsNotifier() {

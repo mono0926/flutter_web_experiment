@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_experiment/model/model.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ImageDetailPage extends StatelessWidget {
   const ImageDetailPage({
@@ -13,11 +14,12 @@ class ImageDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SizedBox.expand(
-          child: Image.network(
-        stamp.imageUrl,
-        fit: BoxFit.contain,
-      )),
+      body: PhotoView(
+        imageProvider: Image.network(
+          stamp.imageUrl,
+          fit: BoxFit.contain,
+        ).image,
+      ),
     );
   }
 }
