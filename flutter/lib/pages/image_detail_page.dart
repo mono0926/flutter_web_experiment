@@ -18,10 +18,7 @@ class ImageDetailPage extends StatelessWidget {
         title: Text(stamp.name),
       ),
       body: PhotoView(
-        imageProvider: Image.network(
-          stamp.imageUrl,
-          fit: BoxFit.contain,
-        ).image,
+        imageProvider: Image.network(stamp.imageUrl).image,
       ),
     );
   }
