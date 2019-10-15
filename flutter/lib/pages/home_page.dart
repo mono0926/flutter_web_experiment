@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_web_experiment/utils/image_icon.dart';
 import 'package:provider/provider.dart';
 
 import '../model/model.dart';
@@ -11,13 +10,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final notifier = Provider.of<StampsNotifier>(context);
-    final stamps = notifier.stamps;
+    final docs = notifier.docs;
     return Scaffold(
       appBar: AppBar(
         title: const Text('ラヴさんスタンプ'),
         leading: IconButton(
-          icon: const AssetsIcon(AssetsIcons.menu),
-//          icon: Icon(Icons.menu),
+//          icon: const AssetsIcon(AssetsIcons.menu),
+          icon: Icon(Icons.menu),
           onPressed: () async {},
         ),
       ),
@@ -26,8 +25,8 @@ class HomePage extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: min(5, constraints.maxWidth ~/ 150),
           ),
-          itemBuilder: (context, index) => _GridCell(stamp: stamps[index]),
-          itemCount: stamps.length,
+          itemBuilder: (context, index) => _GridCell(doc: docs[index]),
+          itemCount: docs.length,
         ),
       ),
     );
@@ -37,10 +36,11 @@ class HomePage extends StatelessWidget {
 class _GridCell extends StatelessWidget {
   const _GridCell({
     Key key,
-    @required this.stamp,
+    @required this.doc,
   }) : super(key: key);
 
-  final Stamp stamp;
+  final StampDoc doc;
+  Stamp get stamp => doc.entity;
 
   @override
   Widget build(BuildContext context) {
