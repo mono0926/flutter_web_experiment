@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_experiment/model/model.dart';
 import 'package:photo_view/photo_view.dart';
+
+import '../model/model.dart';
 
 class ImageDetailPage extends StatelessWidget {
   const ImageDetailPage({
@@ -13,7 +14,9 @@ class ImageDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(stamp.name),
+      ),
       body: PhotoView(
         imageProvider: Image.network(
           stamp.imageUrl,

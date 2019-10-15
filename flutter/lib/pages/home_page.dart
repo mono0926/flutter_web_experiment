@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_web_experiment/model/model.dart';
 import 'package:provider/provider.dart';
 
+import '../model/model.dart';
 import 'image_detail_page.dart';
 
 class HomePage extends StatelessWidget {
