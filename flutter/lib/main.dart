@@ -9,19 +9,6 @@ import 'package:provider/provider.dart';
 import 'firestore/firestore.dart';
 
 void main() {
-//  try {
-//    initializeApp(
-//      apiKey: 'AIzaSyAtY9niKr3OHnJ38roJy0HdV2QzXPm894Y',
-//      authDomain: 'flutter-web-experiment.firebaseapp.com',
-//      databaseURL: 'https://flutter-web-experiment.firebaseio.com',
-//      storageBucket: 'flutter-web-experiment.appspot.com',
-//      projectId: 'flutter-web-experiment',
-//      messagingSenderId: '687526962423',
-//    );
-//  } on FirebaseJsNotLoadedException catch (e) {
-//    print(e);
-//  }
-
   configureFirestore();
 
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
