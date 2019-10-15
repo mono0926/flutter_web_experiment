@@ -8,7 +8,7 @@ admin.initializeApp({
 
 const firestore = admin.firestore()
 
-export async function upload() {
+export async function upload(): Promise<void> {
   const dir = '../../../SheepHomework/stamp/outputs/stamps/'
   const files = fs.readdirSync(dir).filter(x => x.endsWith('.png'))
   console.log(files)
