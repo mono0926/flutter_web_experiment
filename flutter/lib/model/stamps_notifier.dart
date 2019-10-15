@@ -23,6 +23,7 @@ class StampsNotifier extends ChangeNotifier {
   }
 
   var _docs = <StampDoc>[];
+  List<StampDoc> get docs => UnmodifiableListView(_docs);
   List<Stamp> get stamps => UnmodifiableListView(_docs.map((d) => d.entity));
 
   @override

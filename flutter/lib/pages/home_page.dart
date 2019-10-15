@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../model/model.dart';
-import 'image_detail_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -51,12 +50,7 @@ class _GridCell extends StatelessWidget {
         ).image,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push<void>(
-              MaterialPageRoute(
-                builder: (context) => ImageDetailPage(stamp: stamp),
-                settings: RouteSettings(name: stamp.name),
-              ),
-            );
+            Navigator.of(context).pushNamed('/${stamp.name}');
           },
           child: Align(
             alignment: Alignment.bottomCenter,

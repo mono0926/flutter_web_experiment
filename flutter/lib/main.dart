@@ -5,25 +5,36 @@ import 'package:provider/provider.dart';
 
 import 'model/model.dart';
 import 'pages/home_page.dart';
+import 'pages/image_detail_page.dart';
 import 'theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureFirestore();
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      builder: (context) => StampsNotifier(),
+      child: App(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: buildTheme(),
-      home: ChangeNotifierProvider(
-        builder: (context) => StampsNotifier(),
-        child: const HomePage(),
-      ),
+//      initialRoute: '/angry',
+      home: const HomePage(),
+      onGenerateRoute: (settings) {
+        final name = settings.name;
+        return MaterialPageRoute<void>(
+          builder: (context) => ImageDetailPage.wrapped(id: name.split('/')[1]),
+          settings: settings,
+        );
+      },
     );
   }
 }
