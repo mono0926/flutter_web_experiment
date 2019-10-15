@@ -27,7 +27,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: buildTheme(),
-//      initialRoute: '/angry',
+//      initialRoute: '/birthday',
       home: const HomePage(),
       onGenerateRoute: (settings) {
         final name = settings.name;
