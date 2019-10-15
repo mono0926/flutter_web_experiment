@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_web_experiment/utils/image_icon.dart';
 import 'package:provider/provider.dart';
 
 import '../model/model.dart';
@@ -15,7 +16,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ラヴさんスタンプ'),
         leading: IconButton(
-          icon: Icon(Icons.menu),
+          icon: const AssetsIcon(AssetsIcons.menu),
+//          icon: Icon(Icons.menu),
           onPressed: () async {},
         ),
       ),

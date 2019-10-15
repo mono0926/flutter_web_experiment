@@ -19,3 +19,5 @@ dev_dependencies:
   pedantic_mono:
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
