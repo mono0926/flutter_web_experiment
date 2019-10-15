@@ -44,34 +44,37 @@ class _GridCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Ink.image(
-        fit: BoxFit.cover,
-        image: Image.network(
-          stamp.imageUrl,
-        ).image,
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).pushNamed('/${stamp.name}');
-          },
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              constraints: const BoxConstraints.tightFor(
-                width: double.infinity,
-              ),
-              color: Colors.black.withOpacity(0.5),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 4,
-                  horizontal: 8,
+    return Hero(
+      tag: doc.id,
+      child: Card(
+        child: Ink.image(
+          fit: BoxFit.cover,
+          image: Image.network(
+            stamp.imageUrl,
+          ).image,
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed('/${stamp.name}');
+            },
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                constraints: const BoxConstraints.tightFor(
+                  width: double.infinity,
                 ),
-                child: Text(
-                  stamp.name,
-                  textAlign: TextAlign.end,
-                  style: Theme.of(context).textTheme.subhead.copyWith(
-                        color: Colors.white,
-                      ),
+                color: Colors.black.withOpacity(0.5),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 8,
+                  ),
+                  child: Text(
+                    stamp.name,
+                    textAlign: TextAlign.end,
+                    style: Theme.of(context).textTheme.subhead.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
                 ),
               ),
             ),

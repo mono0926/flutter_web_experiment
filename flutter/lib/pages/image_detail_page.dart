@@ -28,15 +28,18 @@ class ImageDetailPage extends StatelessWidget {
     final model = Provider.of<ImageDetailModel>(context);
     final stamp = model.stamp;
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(stamp?.name ?? ''),
       ),
-      body: stamp == null
-          ? null
-          : PhotoView(
-              imageProvider: Image.network(stamp.imageUrl).image,
-            ),
+      body: Hero(
+        tag: model.doc.id,
+        child: stamp == null
+            ? null
+            : PhotoView(
+                imageProvider: Image.network(stamp.imageUrl).image,
+                backgroundDecoration: BoxDecoration(color: Colors.white),
+              ),
+      ),
     );
   }
 }
