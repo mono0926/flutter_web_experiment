@@ -9,7 +9,7 @@ export 'stamp_ref.dart';
 class StampsRef extends CollectionRef<Stamp, StampDoc> {
   StampsRef.ref()
       : super(
-          ref: collectionRef(collection),
+          ref: firestoreInstance.collection(collection),
           decoder: _StampDocDecoder(),
           encoder: _StampEncoder(),
         );

@@ -55,9 +55,7 @@ class ImageDetailPage extends StatelessWidget {
 //                loadingChild: widget.loadingChild,
               backgroundDecoration: BoxDecoration(color: Colors.white),
               pageController: model.pageController,
-              onPageChanged: (index) {
-                model.updateIndex(index);
-              },
+              onPageChanged: model.updateIndex,
             ),
     );
   }
