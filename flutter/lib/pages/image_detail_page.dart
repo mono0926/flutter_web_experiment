@@ -12,6 +12,7 @@ class ImageDetailPage extends StatelessWidget {
 
   static Widget wrapped({@required String id}) {
     return ChangeNotifierProxyProvider<StampsNotifier, ImageDetailModel>(
+      initialBuilder: (context) => null,
       builder: (context, notifier, previous) {
         final doc = notifier.docs.firstWhere(
           (doc) => doc.id == id,
