@@ -168,10 +168,12 @@ packages:
   mono_kit:
     dependency: "direct main"
     description:
-      name: mono_kit
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.2+1"
+      path: "."
+      ref: develop
+      resolved-ref: "3350bfb420effbff192374ba184b8aca10b8e56d"
+      url: "https://github.com/mono0926/flutter_mono_kit.git"
+    source: git
+    version: "0.9.5"
   path:
     dependency: transitive
     description:
