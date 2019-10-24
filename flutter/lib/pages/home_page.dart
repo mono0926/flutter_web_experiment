@@ -25,7 +25,13 @@ class HomePage extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: min(5, constraints.maxWidth ~/ 150),
           ),
-          itemBuilder: (context, index) => _GridCell(doc: docs[index]),
+          itemBuilder: (context, index) {
+            final doc = docs[index];
+            return _GridCell(
+              key: ValueKey(doc.id),
+              doc: doc,
+            );
+          },
           itemCount: docs.length,
         ),
       ),
