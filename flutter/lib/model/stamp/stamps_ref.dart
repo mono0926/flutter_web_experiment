@@ -30,8 +30,8 @@ class _StampDocDecoder extends DocumentDecoder<StampDoc> {
   @override
   StampDoc decode(DocumentSnapshot snapshot) {
     return StampDoc(
-      getSnapshotId(snapshot),
-      Stamp.fromJson(getSnapshotData(snapshot)),
+      snapshot.documentID,
+      Stamp.fromJson(FirRefDocumentSnapshotEx(snapshot).data),
     );
   }
 }

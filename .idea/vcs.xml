@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flutter/ios/.symlinks/plugins/mono_kit" vcs="Git" />
   </component>
 </project>
