@@ -15,7 +15,7 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
   runApp(
     ChangeNotifierProvider(
-      builder: (context) => StampsNotifier(),
+      create: (context) => StampsNotifier(),
       child: App(),
     ),
   );
